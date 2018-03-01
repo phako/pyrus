@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+   <h1>Really remove domain?</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.confirmed() }}
+        {% if not form.confirmed.data %}
+        Are you sure to delete this domain?
+        <p>{{ form.submit() }}</p>
+        {% endif %}
+    </form>
+    </div>
+{% endblock %}

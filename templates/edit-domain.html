@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="block">{{ form.domainname.label }} {{ form.domainname(size=32) }}<br>
+        {{ form.prefix.label }} {{ form.prefix(size=32) }}<br>
+        {{ form.allow_free_names.label }} {{ form.allow_free_names }}<br>
+        {{ form.allow_free_mail_addresses.label }} {{ form.allow_free_mail_addresses }}<br>
+        {{ form.maximum_accounts.label }} {{ form.maximum_accounts }}<br>
+        {{ form.default_quota.label }} {{form.default_quota}}</div>
+    <p>{{ form.submit() }}</p>
+
+</form>
+{% endblock %}

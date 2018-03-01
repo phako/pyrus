@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post">
+    <h2>Domain details</h2>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.domainname.label }} {{ form.domainname(size=32) }}
+    </p>
+    <p>
+        {{ form.prefix.label }} {{ form.prefix(size=32) }}
+    </p>
+    <p>
+        {{ form.allow_free_names.label }} {{ form.allow_free_names }}
+    </p>
+
+    <p>
+        {{ form.allow_free_mail_addresses.label }} {{ form.allow_free_mail_addresses }}
+    </p>
+
+    <p>
+        {{ form.maximum_accounts.label }} {{ form.maximum_accounts }}
+    </p>
+
+    <p>
+        {{ form.default_quota.label }} {{ form.default_quota }}
+    </p>
+
+<h2>Standard mailboxes</h2>
+    <p><label>emailadress where the default aliases should be mapped (empty means no mapping)</label><br>
+    {{ form.standard_mailbox }}</p>
+<h2>Mail transport</h2>
+<p>
+     Leave this as is, unless you know what you are doing<br>
+    {{ form.transport }} {{ form.parameters }}
+</p>
+    <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

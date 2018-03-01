@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr><th>Action</th><th>Domainname</th><th>Prefix</th><th>max Accounts</th><th>default quota per user</th></tr>
+{% for domain in domains %}
+<tr>
+    <td><a href="{{url_for('edit_domain', domain_name = domain.domain_name)}}"><img src="{{url_for('static', filename='edit.png')}}" alt="Edit"/></a>
+        <a href="{{url_for('delete_domain', domain_name = domain.domain_name)}}"><img src="{{url_for('static', filename='delete.png')}}" alt="Delete"/></a>
+        <img src="{{url_for('static', filename='accounts.png')}}" alt="Accounts"/>
+        <img src="{{url_for('static', filename='alias.png')}}" alt="Aliases"/>
+    <td>{{ domain.domain_name }}</td>
+    <td>{{ domain.prefix }}</td>
+    <td>{{ domain.maxaccounts }}</td>
+    <td>{{ domain.quota }}</td>
+<tr>
+{% endfor %}
+</table>
+{% endblock %}
